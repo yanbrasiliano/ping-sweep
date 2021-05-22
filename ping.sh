@@ -26,8 +26,7 @@ echo "               |___/"
 echo "Example use: In the tab below, enter the first 3 octets."
 echo "The scan will run from network 1 to network 254."
 echo
-echo -n "Enther the subnet:  "
-read SUBNET
+read -p "Enther the subnet:  " SUBNET
 
 for IP in $(seq 1 254); do
 	ping -c 1 -w 1 $SUBNET.$IP | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &
